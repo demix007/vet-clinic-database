@@ -29,3 +29,18 @@ CREATE TABLE species (
     id INT GENERATED ALWAYS AS IDENTITY  PRIMARY KEY,
     name VARCHAR(150)
 );
+
+/* Modify animals table */
+
+ALTER TABLE animals
+DROP COLUMN species;
+
+ALTER TABLE animals
+ADD COLUMN species_id INT
+REFERENCES species(id)
+ON DELETE CASCADE;
+
+ALTER TABLE animals
+ADD COLUMN owner_id INT
+REFERENCES owners(id)
+ON DELETE CASCADE;
