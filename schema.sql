@@ -45,3 +45,13 @@ ADD COLUMN owner_id INT
 REFERENCES owners(id)
 ON DELETE CASCADE;
 
+/* Join Tables */
+
+/* Vets Table */
+
+CREATE TABLE vets (
+    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name VARCHAR(150),
+    age INTEGER,
+    date_of_graduation date
+);
