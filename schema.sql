@@ -45,3 +45,34 @@ ADD COLUMN owner_id INT
 REFERENCES owners(id)
 ON DELETE CASCADE;
 
+/* Join Tables */
+
+/* Vets Table */
+
+CREATE TABLE vets (
+    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name VARCHAR(150),
+    age INTEGER,
+    date_of_graduation date
+);
+
+/* Specialization Table */
+
+CREATE TABLE specialization(
+    vets_id INT REFERENCES vets (id),
+    species_id INT REFERENCES species (id),
+    PRIMARY KEY (vets_id, species_id)
+);
+
+/* rename table specialization to specializations */
+ALTER TABLE specialization
+    RENAME TO specializations;
+
+/* Visits Table */
+
+CREATE TABLE visits (
+    animals_id INT REFERENCES animals(id),
+    vets_id INT REFERENCES vets(id),
+    visit_date date,
+    PRIMARY KEY (animals_id, vets_id, visit_date)
+);
