@@ -64,6 +64,10 @@ CREATE TABLE specialization(
     PRIMARY KEY (vets_id, species_id)
 );
 
+/* rename table specialization to specializations */
+ALTER TABLE specialization
+    RENAME TO specializations;
+
 /* Visits Table */
 
 CREATE TABLE visits (

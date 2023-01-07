@@ -131,7 +131,7 @@ FROM animals
 JOIN visits ON animals.id = visits.animals_id 
 JOIN vets ON visits.vets_id = vets.id 
 WHERE vets.name='Stephanie Mendez' 
-AND visits.visit_date > '2019-04-01' 
+AND visits.visit_date > '2020-04-01' 
 AND visits.visit_date <'2020-08-30';
 
 SELECT animals.name AS animal_with_most_visit_to_vets, COUNT(*)
