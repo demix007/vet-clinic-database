@@ -44,3 +44,4 @@ ALTER TABLE animals
 ADD COLUMN owner_id INT
 REFERENCES owners(id)
 ON DELETE CASCADE;
+
