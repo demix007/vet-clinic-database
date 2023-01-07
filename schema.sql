@@ -13,3 +13,19 @@ CREATE TABLE animals (
 
 ALTER TABLE animals
 ADD COLUMN species VARCHAR(50);
+
+/* Multiple tables */
+
+/* Owners table */
+
+CREATE TABLE owners (
+    id INt GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    full_name VARCHAR(150),
+    age INTEGER
+);
+
+/* Species table */
+CREATE TABLE species (
+    id INT GENERATED ALWAYS AS IDENTITY  PRIMARY KEY,
+    name VARCHAR(150)
+);
