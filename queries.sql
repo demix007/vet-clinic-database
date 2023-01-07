@@ -72,3 +72,37 @@ SELECT species,
     WHERE date_of_birth BETWEEN '1990-01-01' AND '2000-01-01' 
     GROUP BY species;
 
+/* Multiple tables queries */
+SELECT name AS animal_names, full_name AS owner_name FROM animals 
+JOIN owners ON animals.owner_id = owners.id 
+WHERE owners.full_name = 'Melody Pond';
+
+SELECT animals.name AS animal_names, species.name AS animal_species FROM animals 
+JOIN species ON  animals.species_id = species.id 
+WHERE species.id = 1;
+
+SELECT full_name, name AS animal_names
+FROM animals 
+RIGHT JOIN owners ON animals.owner_id = owners.id;
+
+SELECT species.name AS species_name, count(*) As species_count
+FROM species 
+JOIN animals ON species.id = animals.species_id 
+GROUP BY species.name;
+
+SELECT animals.* FROM animals
+LEFT JOIN owners
+ON animals.owner_id = owners.id
+LEFT JOIN species
+ON animals.species_id = species.id
+WHERE owners.full_name = 'Jennifer Orwell'
+AND species.name = 'Digimon';
+
+SELECT name FROM animals 
+JOIN owners ON animals.owner_id = owners.id 
+WHERE owners.full_name = 'Dean Winchester' AND animals.escape_attempts = 0;
+
+SELECT owners.full_name AS full_name , COUNT(*) AS count 
+FROM animals JOIN owners ON animals.owner_id = owners.id 
+GROUP BY owners.full_name 
+ORDER BY count DESC LIMIT 1;
