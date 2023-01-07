@@ -55,3 +55,11 @@ CREATE TABLE vets (
     age INTEGER,
     date_of_graduation date
 );
+
+/* Specialization Table */
+
+CREATE TABLE specialization(
+    vets_id INT REFERENCES vets (id),
+    species_id INT REFERENCES species (id),
+    PRIMARY KEY (vets_id, species_id)
+);
