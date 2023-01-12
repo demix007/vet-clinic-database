@@ -8,4 +8,11 @@ PRIMARY KEY (id)
 );
 
 
+CREATE TABLE medical_histories(
+id INT GENERATED ALWAYS AS IDENTITY,
+admitted_at TIMESTAMP NOT NULL DEFAULT NOW(),
+patient_id INT REFERENCES patients(id),
+status VARCHAR(50),
+PRIMARY KEY (id)
+);
 
