@@ -81,3 +81,12 @@ CREATE TABLE visits (
 -- Add an email column to your owners table
 ALTER TABLE owners
 ADD COLUMN email VARCHAR(120);
+
+
+/* index for optimization */
+
+CREATE INDEX animals_id_index ON visits USING btree (animal_id);
+
+CREATE INDEX visits_vets_id_index ON visits USING btree (vet_id);
+
+CREATE INDEX owners_owners_id_index ON owners USING btree(id);
