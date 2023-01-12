@@ -24,5 +24,13 @@ name VARCHAR(50),
 PRIMARY KEY (id)
 );
 
+CREATE TABLE invoices(
+id INT GENERATED ALWAYS AS IDENTITY,
+total_amount DECIMAL,
+generated_at TIMESTAMP NOT NULL DEFAULT NOW(),
+payed_at TIMESTAMP,
+medical_history_id INT UNIQUE REFERENCES medical_histories(id),
+PRIMARY KEY (id)
+);
 
 
