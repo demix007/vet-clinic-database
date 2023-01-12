@@ -16,3 +16,13 @@ status VARCHAR(50),
 PRIMARY KEY (id)
 );
 
+
+CREATE TABLE treatments(
+id INT GENERATED ALWAYS AS IDENTITY,
+type VARCHAR(50),
+name VARCHAR(50),
+PRIMARY KEY (id)
+);
+
+
+
